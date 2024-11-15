@@ -13,10 +13,30 @@ class Person
         Lname = lname;
         Bdate = bdate;
         Phone = phone;
+    
+    public Person()
+    {
+        Person = new List<Person>();
+    }
     }
 
     public void PersonBorrowBook(Book borrowedBook)
     {
         books.Add(borrowedBook);
+
     }
+    public void PersonReturnBook(Book returnedBook)
+    {
+        books.return(returnedBook);
+    }
+
+    
+    
+    public List<Person> ListAllCustomers()
+    {
+        return person;
+    }
+
+
+    
 }
