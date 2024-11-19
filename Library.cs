@@ -1,11 +1,16 @@
+using Microsoft.AspNetCore.Routing.Constraints;
+
 class Library
 {
     List<Book> books;
+    private List<Person> persons;
 
     public Library()
     {
         books = new List<Book>();
+        persons = new List<Person>();
     }
+
 
     public void AddNewBook(Book newBook)
     {
@@ -46,5 +51,29 @@ class Library
 
         return book;
     }
+
+    // public Person AddNewPerson(string fname, string lname, string bdate, string phone)
+    // {
+    //     Person newPerson = new Person(fname, lname, bdate, phone);
+    //     persons.Add(newPerson);
+
+    //     return newPerson;
+    // }
+
+    public void AddNewPerson(Person person)
+    {
+        // Person newPerson = new Person(fname, lname, bdate, phone);
+        persons.Add(person);
+
+
+    }
+    public List<Person> ListAllCustomers()
+    {
+        return persons;
+    }
+
+
+
+
 
 }

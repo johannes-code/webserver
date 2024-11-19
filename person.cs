@@ -1,42 +1,28 @@
 class Person
 {
     private List<Book> books;
-    public string fname;
-    public string lname;
-    private string bdate;
-    private string phone;
-    public Guid CustomerId;
+    public string Fname { get; set; }
+    public string Lname { get; set; }
+    private string Bdate { get; set; }
+    private string Phone { get; set; }
+    public Guid CustomerId { get; set; }
 
     public Person(string fname, string lname, string bdate, string phone)
     {
-        fname = this.fname;
-        lname = this.lname;
-        bdate = this.bdate;
-        phone = this.phone;
+        Fname = fname;
+        Lname = lname;
+        Bdate = bdate;
+        Phone = phone;
+        books = new List<Book>();
+        CustomerId = Guid.NewGuid();
     }
 
-    public Person()
+    public void PersonBorrowBook(Book borrowedBook)
     {
-        Person = new List<Person>();
+        books.Add(borrowedBook);
     }
-}
-
-public void PersonBorrowBook(Book borrowedBook)
-{
-    books.Add(borrowedBook);
-
-}
-public void PersonReturnBook(Book returnedBook)
-{
-    books.return (returnedBook);
-}
-
-
-
-public List<Person> ListAllCustomers()
-{
-    return person;
-}
-
-
+    public void PersonReturnBook(Book returnedBook)
+    {
+        books.Remove(returnedBook);
+    }
 }
